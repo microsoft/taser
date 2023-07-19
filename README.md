@@ -1,31 +1,49 @@
+# Task-Aware Specialization for Efficient and Robust Dense Retrieval for Open-Domain Question Answering
 
-# Contributing
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+This repository contains code and instructions for reproducing the experiments in the paper
+[Task-Aware Specialization for Efficient and Robust Dense Retrieval for Open-Domain Question Answering](https://aclanthology.org/2023.acl-short.159/) (ACL 2023).
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+![Approach Overview](./assets/taser.png?raw=true)
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Introduction (WIP)
 
-# Legal Notices
+```bash
+git clone --recurse-submodules https://github.com/microsoft/taser
 
-Microsoft and any contributors grant you a license to the Microsoft documentation and other content
-in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
-[LICENSE-CODE](LICENSE-CODE) file.
+conda env create --file=environment.yml --name=taser
 
-Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
-may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
-The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at http://go.microsoft.com/fwlink/?LinkID=254653.
+# activate the new sandbox you just created
+conda activate taser
+# add the `src/` and `third_party/DPR` to the list of places python searches for packages
+conda develop src/ third_party/DPR/
 
-Privacy information can be found at https://privacy.microsoft.com/en-us/
+# download spacy models
+python -m spacy download en_core_web_sm
+```
 
-Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
-or trademarks, whether by implication, estoppel or otherwise.
+See [worksheets/01-in-domain-evaluation](./worksheets/01-in-domain-evaluation/) for steps to run in-domain evaluation experiments with TASER models.
+
+More details coming soon!
+
+## Citation
+
+If you use any source code or data included in this repo, please cite our paper.
+
+```bib
+@inproceedings{cheng-etal-2023-task,
+    title = "Task-Aware Specialization for Efficient and Robust Dense Retrieval for Open-Domain Question Answering",
+    author = "Cheng, Hao  and
+      Fang, Hao  and
+      Liu, Xiaodong  and
+      Gao, Jianfeng",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-short.159",
+    pages = "1864--1875",
+}
+```

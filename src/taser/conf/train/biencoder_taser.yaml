@@ -1,0 +1,46 @@
+# @package _group_
+
+batch_size: 16
+dev_batch_size: 64
+adam_eps: 1e-8
+adam_betas: [0.9, 0.999]
+max_grad_norm: 2.0
+log_batch_step: 100
+train_rolling_loss_step: 100
+weight_decay: 0.0
+learning_rate: 2e-5
+
+# VAT parameters (not used)
+use_vat: False
+vat_alpha: 1.0
+vat_loss_type: kl
+vat_epsilon: 1e-3
+vat_step: 1e-3
+vat_noise_norm: L2
+ctx_vat_only: False
+
+# Added optimizer parameters.
+use_layer_lr: True
+layer_decay: 0.8
+
+opt_name: adam
+sim_method: dot
+
+entr_loss_weight: 0.0
+
+# Linear warmup over warmup_steps.
+warmup_steps: 1237
+warmup_ratio:
+
+# Number of updates steps to accumulate before performing a backward/update pass.
+gradient_accumulation_steps: 1
+
+# Total number of training epochs to perform.
+num_train_epochs: 40
+eval_per_epoch: 1
+hard_negatives: 1
+other_negatives: 0
+val_av_rank_hard_neg: 30
+val_av_rank_other_neg: 30
+val_av_rank_bsz: 128
+val_av_rank_max_qs: 10000

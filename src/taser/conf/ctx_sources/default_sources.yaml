@@ -1,0 +1,6 @@
+# @package _group_
+
+dpr_wiki:
+  _target_: dpr.data.retriever_data.CsvCtxSrc
+  file:
+  id_prefix: "wiki:"
