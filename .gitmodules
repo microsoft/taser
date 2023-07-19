@@ -1,0 +1,3 @@
+[submodule "third_party/DPR"]
+	path = third_party/DPR
+	url = https://github.com/facebookresearch/DPR.git
